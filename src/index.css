@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+@config "../tailwind.config.js";
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --brand-primary: #0f766e;
+  --brand-secondary: #134e4a;
+  --glass-bg: rgba(255, 255, 255, 0.9);
+  --glass-border: rgba(0, 0, 0, 0.05);
+}
+
+.mesh-gradient {
+  background-color: #f5f5f4; /* Stone 100 */
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(15, 118, 110, 0.04) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(120, 113, 108, 0.04) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(15, 118, 110, 0.04) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(120, 113, 108, 0.04) 0px, transparent 50%);
+}
+
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+}
+
+body {
+  @apply bg-white text-slate-800 font-sans antialiased;
+  margin: 0;
+  padding: 0;
+}
+
+.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
+/* Pannellum Custom Styles */
+.pnlm-container {
+  border-radius: 1rem !important;
+  overflow: hidden !important;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05), 0 4px 15px -5px rgba(0, 0, 0, 0.02) !important;
+  border: 1px solid #f1f5f9 !important;
+}
+
+.pnlm-load-box {
+  background: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(4px) !important;
+  border-radius: 0.75rem !important;
+  border: 1px solid #e0effe !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
+}
+
+.pnlm-lmsg {
+  color: #0e8ce4 !important;
+  font-weight: 500 !important;
+}
+
+.pnlm-control-bar {
+  background: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(8px) !important;
+  border: 1px solid rgba(226, 232, 240, 0.5) !important;
+  border-radius: 0.5rem !important;
+  margin: 1rem !important;
+}
+
+.pnlm-zoom-controls, .pnlm-fullscreen-toggle-button, .pnlm-orientation-button, .pnlm-compass {
+  background: transparent !important;
+}
+
+.pnlm-zoom-controls:hover, .pnlm-fullscreen-toggle-button:hover, .pnlm-orientation-button:hover {
+  background: #f1f5f9 !important;
+}
+
+.pnlm-hotspot-base {
+  cursor: pointer !important;
+}
+
+/* Custom Navigation Arrow Hotspot */
+.nav-arrow-hotspot {
+    height: 60px;
+    width: 60px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" stroke="%233b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19 7-7-7-7"/><path d="M19 12H5"/></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+    z-index: 10;
+}
+
+.nav-arrow-hotspot:hover {
+    transform: scale(1.2) translateY(-5px);
+    filter: drop-shadow(0 10px 15px rgba(59, 130, 246, 0.5));
+}
+
+/* Label for arrow hotspots */
+.nav-arrow-hotspot::after {
+    content: attr(data-text);
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #1e293b;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s, bottom 0.3s;
+    pointer-events: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.nav-arrow-hotspot:hover::after {
+    opacity: 1;
+    bottom: -35px;
+}
